@@ -21,12 +21,29 @@ export class CustomerAddComponent implements OnInit{
   }
 
 
-  addCustomer(){
-    let customer = new Customer(0,this.firstName,this.lastName,this.email);
-    console.log(customer);
-    this.customerService.createCustomer(customer).subscribe(
-      res => console.log(res)
-    );
+  addCustomer() {
+    const customer = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      email: this.email
+    };
+
+    console.log('Cliente a enviar:', customer);
+
+    this.customerService.createCustomer(customer).subscribe({
+      next: (res) => {
+        console.log('Cliente creado con éxito:', res);
+        this.resetForm();
+      },
+      error: (err) => {
+        console.error('Error al crear el cliente:', err);
+      }
+    });
   }
 
+  resetForm() {
+    this.firstName = '';
+    this.lastName = '';
+    this.email = '';
+  }
 }

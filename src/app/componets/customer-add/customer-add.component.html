@@ -1,0 +1,19 @@
+<div class="container">
+<h2>Create customer</h2>
+<button class="btn btn-primary" routerLink="">go to customers list</button>
+<form (ngSubmit)="addCustomer()" #customerForm="ngForm">
+    <div class="mb-3">
+    <div class="mb-3">
+    <label for="firstName" class="form-label">First name</label>
+    <input [(ngModel)]="firstName" type="text" class="form-control" id="firstName" name="firstName">
+  </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last name</label>
+    <input [(ngModel)]="lastName" type="text" class="form-control" id="lastName" name="lastName">
+  </div>
+    <label for="email" class="form-label">Email</label>
+    <input [(ngModel)]="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
